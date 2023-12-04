@@ -10,6 +10,8 @@ const fileSystemLogRepository = new LogRepositoryImpl(
 export class Server {
   public static start() {
     console.log("Server started");
+
+    //? Mandar email
     CronService.createJob("*/5 * * * * *", () => {
       const url = "https://google.com/";
       new CheckService(
