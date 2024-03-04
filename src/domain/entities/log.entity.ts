@@ -26,11 +26,26 @@ export class LogEntity {
   }
 
   // "{"level": "low", "message":"Hola", "createdAt": "123213213tz2312321"}" => esto es lo que recibo un string
-  // Por eso uso el parse para que me regrese unn objeto
+  // Por eso uso el parse para que me regrese un objeto
   static fromJson = (json: string): LogEntity => {
+    json = json === "" ? "{}" : json;
     const { message, level, createdAt, origin } = JSON.parse(json);
 
     const log = new LogEntity({ message, level, origin, createdAt });
+    return log;
+  };
+
+  // Recibo un objeto en el que las keys van a ser de tipo string
+  // y el valor puede ser de tipo any
+  static fromObject = (object: { [key: string]: any }): LogEntity => {
+    const { message, level, createdAt, origin } = object;
+    const log = new LogEntity({
+      message,
+      level,
+      createdAt,
+      origin,
+    });
+
     return log;
   };
 }
