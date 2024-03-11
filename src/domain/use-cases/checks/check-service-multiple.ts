@@ -12,13 +12,13 @@ type ErrorCallback = ((error: string) => void) | undefined;
 
 export class CheckServiceMultiple implements CheckServiceMultipleUseCase {
   constructor(
-    private readonly logRepository: LogRepository[],
+    private readonly logRepositories: LogRepository[],
     private readonly successCallback: SuccesCallback,
     private readonly errorCallback: ErrorCallback
   ) {}
 
   private callLogs(log:LogEntity){
-    this.logRepository.forEach((logRepository => {
+    this.logRepositories.forEach((logRepository => {
       logRepository.saveLog(log)
     }))
   }

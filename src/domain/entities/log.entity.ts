@@ -31,7 +31,12 @@ export class LogEntity {
     json = json === "" ? "{}" : json;
     const { message, level, createdAt, origin } = JSON.parse(json);
 
-    const log = new LogEntity({ message, level, origin, createdAt });
+    const log = new LogEntity({ 
+      message, 
+      level, 
+      origin, 
+      createdAt: new Date(createdAt) 
+    });
     return log;
   };
 
@@ -42,7 +47,7 @@ export class LogEntity {
     const log = new LogEntity({
       message,
       level,
-      createdAt,
+      createdAt: new Date(createdAt),
       origin,
     });
 

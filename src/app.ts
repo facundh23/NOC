@@ -1,4 +1,4 @@
-import { envs } from "./config/envs.plugin";
+import { envs } from "./config/plugin/envs.plugin";
 import { Server } from "./presentation/server";
 import { LogModel, MongoDataBase } from "./data/mongo";
 import { PrismaClient } from "@prisma/client";
@@ -38,7 +38,7 @@ async function main() {
   // console.log(logs);
 
 
-  // Server.start();
+  Server.start();
   // console.log(envs);
 
   // // Crear una coleccion = tables, documento = registro / row
