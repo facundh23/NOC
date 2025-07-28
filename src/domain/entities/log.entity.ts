@@ -1,3 +1,5 @@
+//? La entidad es algo que va a lelgar a la base de datos
+
 export enum LogSeverityLevel {
   low = "low",
   medium = "medium",
